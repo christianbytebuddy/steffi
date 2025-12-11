@@ -16,6 +16,8 @@ return new class extends Migration {
             $table->text('reason')->nullable();
             $table->enum('status', ['pendiente', 'realizada', 'cancelada'])->default('pendiente');
             $table->timestamps();
+            $table->string('description');
+
         });
     }
 

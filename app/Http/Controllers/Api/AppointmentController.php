@@ -20,8 +20,9 @@ class AppointmentController extends Controller
                 'patient_name' => 'required|string|max:255',
                 'doctor_name'  => 'required|string|max:255',
                 'date'         => 'required|date',
-                'time'         => 'required',
-                'reason'       => 'nullable|string',
+                'time'         => 'required|date_format:H:i',
+                'reason'       => 'nullable|required|string',
+                'description' => 'nullable|required|string',
                 'status'       => 'required|in:pendiente,realizada,cancelada',
             ], [
                 'patient_name.required' => 'El nombre del paciente es obligatorio.',
@@ -30,6 +31,7 @@ class AppointmentController extends Controller
                 'date.date'             => 'La fecha no tiene un formato válido.',
                 'time.required'         => 'La hora es obligatoria.',
                 'status.required'       => 'El estado es obligatorio.',
+                'description'           => 'La descripcion debe ser obligatoria',
                 'status.in'             => 'El estado debe ser: pendiente, realizada o cancelada.',
             ]);
 
@@ -71,8 +73,9 @@ class AppointmentController extends Controller
                 'patient_name' => 'sometimes|required|string|max:255',
                 'doctor_name'  => 'sometimes|required|string|max:255',
                 'date'         => 'sometimes|required|date',
-                'time'         => 'sometimes|required',
-                'reason'       => 'nullable|string',
+                'time'         => 'sometimes|required|date_format:H:i',
+                'reason'       => 'nullable|required|string',
+                'description' => 'nullable|required|string',
                 'status'       => 'sometimes|required|in:pendiente,realizada,cancelada',
             ], [
                 'patient_name.required' => 'El nombre del paciente es obligatorio.',
@@ -81,6 +84,7 @@ class AppointmentController extends Controller
                 'date.date'             => 'La fecha no tiene un formato válido.',
                 'time.required'         => 'La hora es obligatoria.',
                 'status.required'       => 'El estado es obligatorio.',
+                'description'           => 'La descripcion debe ser obligatoria',
                 'status.in'             => 'El estado debe ser: pendiente, realizada o cancelada.',
             ]);
 
@@ -109,5 +113,7 @@ class AppointmentController extends Controller
         $appointment->delete();
 
         return response()->json(['message' => 'Cita eliminada correctamente'], 200);
+
+
     }
 }
