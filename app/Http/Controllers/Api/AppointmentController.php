@@ -31,7 +31,7 @@ class AppointmentController extends Controller
                 'date.date'             => 'La fecha no tiene un formato válido.',
                 'time.required'         => 'La hora es obligatoria.',
                 'status.required'       => 'El estado es obligatorio.',
-                'description'           => 'La descripcion debe ser obligatoria',
+                'description'           => 'La descripcion para el paciente debe ser obligatoria',
                 'status.in'             => 'El estado debe ser: pendiente, realizada o cancelada.',
             ]);
 
@@ -84,7 +84,7 @@ class AppointmentController extends Controller
                 'date.date'             => 'La fecha no tiene un formato válido.',
                 'time.required'         => 'La hora es obligatoria.',
                 'status.required'       => 'El estado es obligatorio.',
-                'description'           => 'La descripcion debe ser obligatoria',
+                'description'           => 'La descripcion para el paciente debe ser obligatoria',
                 'status.in'             => 'El estado debe ser: pendiente, realizada o cancelada.',
             ]);
 
